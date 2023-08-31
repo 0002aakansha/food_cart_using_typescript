@@ -1,4 +1,4 @@
-# food_cart_using_typescript# Food Cart Application
+# Food Cart Application
 
 This is a simple application developed using React and TypeScript. This readme provides you with the necessary information to set up and run the project on your local machine.
 
