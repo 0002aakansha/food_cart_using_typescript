@@ -4,7 +4,7 @@ This is a simple application developed using React and TypeScript. This readme p
 
 ## Installation
 
-Node.js: The project relies on Node.js to run. Install it from nodejs.org
+- Node.js: The project relies on Node.js to run. Install it from nodejs.org
 - Clone the Repository: git clone https://github.com/0002aakansha/food_cart_using_typescript.git
 -  to the Project Directory: cd food_cart_using_typescript
 - Install Dependencies: npm install.
