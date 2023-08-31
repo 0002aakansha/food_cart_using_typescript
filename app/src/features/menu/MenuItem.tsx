@@ -1,11 +1,13 @@
 import {  itemProps } from '../../types/types'
 import useAddToCart from '../../customHooks/useAddToCart'
+import toast from 'react-hot-toast'
 
 export default function MenuItem(props: itemProps) {
     const addToCart = useAddToCart()
 
     function addToCartHandler() {
         addToCart(props.item)
+        toast.success('Item added to cart!')
     }
 
     return (
