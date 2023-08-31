@@ -1,18 +1,11 @@
-import { useDispatch } from 'react-redux'
-import { itemObject } from '../../types/types'
-import { addToCart } from '../../Store/cartReducer'
-import toast from 'react-hot-toast'
-
-interface itemProps {
-    item: itemObject
-}
+import {  itemProps } from '../../types/types'
+import useAddToCart from '../../customHooks/useAddToCart'
 
 export default function MenuItem(props: itemProps) {
+    const addToCart = useAddToCart()
 
-    const dispatch = useDispatch()
     function addToCartHandler() {
-        toast.success('Item added to cart!')
-        dispatch(addToCart(props.item))
+        addToCart(props.item)
     }
 
     return (

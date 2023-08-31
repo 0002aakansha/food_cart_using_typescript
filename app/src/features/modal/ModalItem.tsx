@@ -1,40 +1,33 @@
-import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../Store/cartReducer";
+import { modalProps } from "../../types/types";
+import useAddToCart from "../../customHooks/useAddToCart";
+import useRemoveFromCart from "../../customHooks/useRemoveFromCart";
 
-interface itemProps {
-    id: number;
-    name: string;
-    src: string;
-    price: number;
-    quantity: number;
-    totalPrice: number;
-}
-
-export default function ModalItem(props: itemProps) {
-    const dispatch = useDispatch()
+export default function ModalItem(props: modalProps) {
+    const addToCart = useAddToCart()
+    const removeFromCart = useRemoveFromCart()
 
     const addToCartHandler = () => {
-        dispatch(addToCart({ id: props.id, name: props.name, imageUrl: props.src, unitPrice: props.price, quantity: props.quantity, totalPrice: props.totalPrice }))
+        addToCart(props.items)
     }
 
     const deleteHandler = () => {
-        dispatch(removeFromCart(props.id))
+        removeFromCart(props.items.id)
     }
 
     return (
         <>
             <tr className="border border-zinc-300">
                 <td className="p-2">
-                    <img src={props.src} alt="" className="w-20" />
+                    <img src={props.items.imageUrl} alt="" className="w-20" />
                 </td>
-                <td className="">{props.name}</td>
-                <td className="border border-zinc-300 text-center">{props.price}$</td>
+                <td className="">{props.items.name}</td>
+                <td className="border border-zinc-300 text-center">{props.items.unitPrice}$</td>
                 <td className="border border-zinc-300 text-center">
                     <button className="bg-rose-600 px-2 py-1 rounded-sm text-stone-200 font-semibold mx-2" onClick={deleteHandler}>-</button>
-                    {props.quantity}
+                    {props.items.quantity}
                     <button className="bg-green-700 px-2 py-1 rounded-sm text-stone-200 font-semibold mx-2" onClick={addToCartHandler}>+</button>
                 </td>
-                <td className="border border-zinc-300 text-center">{props.totalPrice}$</td>
+                <td className="border border-zinc-300 text-center">{props.items.totalPrice}$</td>
             </tr>
         </>
     )

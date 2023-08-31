@@ -3,7 +3,7 @@ export interface itemObject {
     name: string;
     unitPrice: number;
     imageUrl: string;
-    ingredients: string[],
+    ingredients: string[];
     soldOut: boolean
 }
 
@@ -12,8 +12,6 @@ export interface cartObject {
     name: string;
     unitPrice: number;
     imageUrl: string;
-    ingredients: string[],
-    soldOut: boolean
     quantity: number;
     totalPrice: number;
 }
@@ -23,4 +21,24 @@ export interface cartType {
     subTotal: number;
     totalQuantity: number;
     open: boolean
+}
+
+export interface itemProps {
+    item: itemObject
+}
+
+export interface modalProps {
+    items: {
+        id: number;
+        name: string;
+        unitPrice: number;
+        imageUrl: string;
+        quantity: number;
+        totalPrice: number;
+    }
+}
+
+export interface modalPropsArray {
+    items: cartObject[];
+    subTotal: number
 }

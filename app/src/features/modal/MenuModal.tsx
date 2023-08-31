@@ -1,19 +1,14 @@
 import { Button, Heading, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text } from "@chakra-ui/react";
-import { cartObject } from "../../types/types";
+import {  modalPropsArray } from "../../types/types";
 import ModalItem from "./ModalItem";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../Store/store";
+import { useDispatch } from "react-redux";
 import { setOpen } from "../../Store/cartReducer";
+import { UseOpen } from "../../customHooks/reducerHooks";
 
-interface itemProps {
-    items: cartObject[];
-    subTotal: number
-}
-
-export default function MenuModal(props: itemProps) {
+export default function MenuModal(props: modalPropsArray) {
 
     const dispatch = useDispatch()
-    const isOpen = useSelector<RootState>(state => state.cart.open) as boolean
+    const isOpen = UseOpen()
     const onClose = () => dispatch(setOpen())
 
     return (
@@ -37,7 +32,7 @@ export default function MenuModal(props: itemProps) {
                             </thead>
                             <tbody>
                                 {
-                                    props.items.map(item => <ModalItem key={item.id} id={item.id} name={item.name} src={item.imageUrl} price={item.unitPrice} quantity={item.quantity} totalPrice={item.totalPrice} />)
+                                    props.items.map(item => <ModalItem key={item.id} items={item} />)
                                 }
 
                                 <tr className="border border-zinc-300 text-center">

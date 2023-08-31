@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../Store/store'
+import { useDispatch } from 'react-redux'
 import cart_img from '../../assets/cart.png'
 import { setOpen } from '../../Store/cartReducer'
-import { cartObject } from '../../types/types'
 import MenuModal from '../modal/MenuModal'
+import { UseItems, UseOpen, UseSubTotal, UseTotalQuantity } from '../../customHooks/reducerHooks'
 
-export default function Cart<T extends RootState>() {
+export default function Cart() {
     const dispatch = useDispatch()
-    const isOpen = useSelector<T>(state => state.cart.open)
-    const items = useSelector<RootState>(state => state.cart.items) as cartObject[]
-    const subTotal = useSelector<RootState>(state => state.cart.subTotal) as number
-    const totalQuantity = useSelector<RootState>(state => state.cart.totalQuantity) as number
+    const isOpen = UseOpen()
+    const items = UseItems()
+    const subTotal = UseSubTotal()
+    const totalQuantity = UseTotalQuantity()
 
     function clickHandler() {
         dispatch(setOpen())

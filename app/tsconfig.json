@@ -23,5 +23,5 @@
   "include": [
     "src",
     "*.png"
-  ]
+, "src/customHooks/reducerHooks.tsx"  ]
 }
