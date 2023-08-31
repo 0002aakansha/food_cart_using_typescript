@@ -4,6 +4,7 @@ import Menu, { loader as menuLoader } from './features/menu/Menu'
 import { Provider } from 'react-redux'
 import store from './Store/store'
 import { Toaster } from 'react-hot-toast'
+import User from './features/user/CreateUser'
 
 export default function App() {
 
@@ -11,7 +12,8 @@ export default function App() {
     {
       element: <AppLayout />,
       children: [
-        { path: '/', element: <Menu />, loader: menuLoader }
+        { path: '/', element: <User />},
+        { path: '/menu', element: <Menu />, loader: menuLoader }
       ]
     }
   ])

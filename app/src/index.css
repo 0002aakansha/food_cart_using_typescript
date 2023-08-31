@@ -6,6 +6,10 @@
     background-color: #00000082;
 }
 
+body{
+    min-height: 100vh;
+}
+
 button{
     transition: all .3s ease;
 }
