@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Modal {
+    background-color: #00000082;
+}
+
+button{
+    transition: all .3s ease;
+}
+
+button:active {
+    transform: scale(.9);
+}
